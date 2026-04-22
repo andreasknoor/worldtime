@@ -1,26 +1,69 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Responsive tile dimensions — overridden at sm breakpoint */
+  --tile-w: 36px;
+  --tile-h: 56px;
+  --header-w: 155px;
+  --axis-h: 28px;
+
+  --bg: #0f0f13;
+  --surface: #1a1a24;
+  --surface-2: #22222f;
+  --border: #2e2e3d;
+  --text: #e8e8f0;
+  --text-muted: #8888a0;
+  --accent: #6366f1;
+  --accent-hover: #818cf8;
+  --home-accent: #10b981;
+  --tile-night: #111118;
+  --tile-morning: #1c2030;
+  --tile-business: #1e2d3a;
+  --tile-evening: #1a2028;
+  --tile-late: #141420;
+  --tile-weekend: rgba(99, 102, 241, 0.08);
+  --tile-hover: rgba(99, 102, 241, 0.18);
+  --tile-selected: rgba(99, 102, 241, 0.35);
+  --tile-selected-border: #6366f1;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@media (min-width: 640px) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --tile-w: 44px;
+    --tile-h: 64px;
+    --header-w: 230px;
+    --axis-h: 32px;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+* {
+  box-sizing: border-box;
 }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+  height: 6px;
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+.tile-night     { background-color: var(--tile-night); }
+.tile-morning   { background-color: var(--tile-morning); }
+.tile-business  { background-color: var(--tile-business); }
+.tile-evening   { background-color: var(--tile-evening); }
+.tile-late      { background-color: var(--tile-late); }

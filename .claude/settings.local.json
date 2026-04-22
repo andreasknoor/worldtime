@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:www.worldtimebuddy.com)",
+      "WebSearch",
+      "WebFetch(domain:remoters.net)",
+      "Bash(npx create-next-app@latest *)"
+    ]
+  }
+}

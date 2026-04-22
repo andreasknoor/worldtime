@@ -1,36 +1,60 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# WorldTime
 
-## Getting Started
+A fast, clean timezone converter and meeting scheduler. See what time it is across multiple cities simultaneously, drag to select a time range, and copy it to your clipboard.
 
-First, run the development server:
+Live at: **https://worldtime-seven.vercel.app**
+
+## Features
+
+- Add any city from a built-in database of ~200 locations
+- 24h and 12h time formats
+- Drag across hours to select a range, then copy all timezones at once
+- Double-click any hour to instantly copy that moment across all timezones
+- DST warning when a timezone is about to change clocks within 7 days
+- Reorder rows by dragging
+- Set any location as your home timezone
+- All locations and preferences persisted to localStorage
+- Scrolls to the current hour on load
+
+## Tech Stack
+
+- [Next.js 16](https://nextjs.org) — App Router
+- [React 19](https://react.dev)
+- [Luxon](https://moment.github.io/luxon/) — timezone and DST logic
+- [Tailwind CSS 4](https://tailwindcss.com)
+- TypeScript
+- Deployed on [Vercel](https://vercel.com)
+
+## Local Development
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Deployment
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+vercel --prod
+```
 
-## Learn More
+Requires the [Vercel CLI](https://vercel.com/docs/cli) and an authenticated session (`vercel login`).
 
-To learn more about Next.js, take a look at the following resources:
+## Project Structure
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+app/              Next.js app router entry point and global styles
+components/       UI components (grid, rows, tiles, toolbar, modals)
+hooks/            usePersistedState, useLiveClock
+lib/              timeUtils (formatting, offsets, DST), types
+data/cities.json  Bundled city database (~200 entries)
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Security
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- No server, no database, no user accounts — purely client-side
+- No data is transmitted anywhere; all state lives in localStorage
+- Content Security Policy, X-Frame-Options, and other security headers configured in `next.config.ts`
+- Run `npm audit` before deploying to check for dependency vulnerabilities

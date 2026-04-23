@@ -1,14 +1,16 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import { isValidIanaTimezone } from '@/lib/timeUtils'
 
 function isLocation(v: unknown): boolean {
+  if (typeof v !== 'object' || v === null) return false
+  const r = v as Record<string, unknown>
   return (
-    typeof v === 'object' && v !== null &&
-    typeof (v as Record<string, unknown>).id === 'string' &&
-    typeof (v as Record<string, unknown>).label === 'string' &&
-    typeof (v as Record<string, unknown>).timezone === 'string' &&
-    typeof (v as Record<string, unknown>).isHome === 'boolean'
+    typeof r.id === 'string' &&
+    typeof r.label === 'string' &&
+    typeof r.timezone === 'string' && isValidIanaTimezone(r.timezone) &&
+    typeof r.isHome === 'boolean'
   )
 }
 

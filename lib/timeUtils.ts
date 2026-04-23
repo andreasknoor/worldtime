@@ -84,3 +84,13 @@ export function detectUserCity(): { label: string; timezone: string } {
   const city = parts[parts.length - 1].replace(/_/g, ' ')
   return { label: city, timezone: tz }
 }
+
+export function isValidIanaTimezone(timezone: string): boolean {
+  if (!timezone) return false
+  try {
+    Intl.DateTimeFormat(undefined, { timeZone: timezone })
+    return true
+  } catch {
+    return false
+  }
+}

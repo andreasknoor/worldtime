@@ -1,6 +1,8 @@
 'use client'
 
 import type { SelectedRange } from '@/lib/types'
+// REMOVABLE FEATURE: theme toggle — delete this import and the <ThemeToggle /> render below to remove
+import { ThemeToggle } from './ThemeToggle'
 
 interface ToolbarProps {
   hourFormat: '12' | '24'
@@ -88,6 +90,9 @@ export function Toolbar({
             </button>
           </div>
         )}
+
+        {/* REMOVABLE FEATURE: theme toggle render */}
+        <ThemeToggle />
 
         {/* Hour format toggle */}
         <div

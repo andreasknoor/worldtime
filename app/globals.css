@@ -16,11 +16,13 @@
   --accent: #6366f1;
   --accent-hover: #818cf8;
   --home-accent: #10b981;
-  --tile-night: #111118;
-  --tile-morning: #1c2030;
-  --tile-business: #1e2d3a;
-  --tile-evening: #1a2028;
-  --tile-late: #141420;
+  --tile-night: #0d0d14;
+  --tile-morning: #141c28;
+  --tile-business: #172030;
+  --tile-evening: #131c24;
+  --tile-late: #0f0f1a;
+  --tile-text: #8890aa;
+  --tile-text-business: #c8d0e8;
   --tile-weekend: rgba(99, 102, 241, 0.08);
   --tile-hover: rgba(99, 102, 241, 0.18);
   --tile-selected: rgba(99, 102, 241, 0.35);
@@ -67,3 +69,28 @@ body {
 .tile-business  { background-color: var(--tile-business); }
 .tile-evening   { background-color: var(--tile-evening); }
 .tile-late      { background-color: var(--tile-late); }
+
+/* === REMOVABLE FEATURE: light theme overrides (delete this block to remove) === */
+[data-theme="light"] {
+  --bg: #fafafc;
+  --surface: #ffffff;
+  --surface-2: #f1f1f5;
+  --border: #dcdce4;
+  --text: #1a1a24;
+  --text-muted: #6b6b80;
+  --accent: #4f46e5;
+  --accent-hover: #4338ca;
+  --home-accent: #059669;
+  --tile-night: #c5c8d4;
+  --tile-morning: #fde8d2;
+  --tile-business: #ebf3fb;
+  --tile-evening: #fdd8b0;
+  --tile-late: #c8c5dc;
+  --tile-text: #4b5563;
+  --tile-text-business: #1e3a8a;
+  --tile-weekend: rgba(99, 102, 241, 0.06);
+  --tile-hover: rgba(99, 102, 241, 0.14);
+  --tile-selected: rgba(99, 102, 241, 0.28);
+  --tile-selected-border: #4f46e5;
+}
+/* === end removable block === */

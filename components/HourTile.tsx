@@ -39,15 +39,15 @@ export function HourTile({
     : isCurrentHour
     ? 'var(--home-accent)'
     : category === 'business'
-    ? '#c8d0e8'
-    : '#8890aa'
+    ? 'var(--tile-text-business)'
+    : 'var(--tile-text)'
 
   const categoryBg: Record<typeof category, string> = {
-    night: '#0d0d14',
-    morning: '#141c28',
-    business: '#172030',
-    evening: '#131c24',
-    late: '#0f0f1a',
+    night: 'var(--tile-night)',
+    morning: 'var(--tile-morning)',
+    business: 'var(--tile-business)',
+    evening: 'var(--tile-evening)',
+    late: 'var(--tile-late)',
   }
 
   return (

@@ -2,7 +2,11 @@
 
 A fast, clean timezone converter and meeting scheduler. See what time it is across multiple cities simultaneously, drag to select a time range, and copy it to your clipboard.
 
-Live at: **https://worldtime-seven.vercel.app**
+Built end-to-end by Andreas Knoor using Claude Code, including the codebase, tests, and this README. All commits, prompts, and decisions are in the git history.
+
+Live at: **https://worldtime.andreasknoor.com/**
+
+![WorldTime screenshot](public/screenshot.png)
 
 ## Features
 
